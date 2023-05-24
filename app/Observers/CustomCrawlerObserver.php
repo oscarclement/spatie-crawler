@@ -23,7 +23,7 @@ class CustomCrawlerObserver extends CrawlObserver {
      */
     public function willCrawl(UriInterface $url): void
     {
-        // Log::info('willCrawl',['url'=>$url]);
+        Log::info('willCrawl',['url'=>$url]);
     }
 
     /**
@@ -103,7 +103,7 @@ class CustomCrawlerObserver extends CrawlObserver {
                     
                 }
                 
-                echo 'Email Addresses:', print_r($emailResults);
+                echo 'Email Addresses: ', json_encode($emailResults);
             }
         }
 
@@ -123,7 +123,7 @@ class CustomCrawlerObserver extends CrawlObserver {
                     
                 }
                 
-                echo 'Phone Numbers:', print_r($phoneResults);
+                echo ' Phone Numbers: ', json_encode($phoneResults);
             }
         }
         
@@ -144,6 +144,6 @@ class CustomCrawlerObserver extends CrawlObserver {
         $areaCode = substr($phoneNumber, 0, 3);
         $prefix = substr($phoneNumber, 3, 3);
         $lineNumber = substr($phoneNumber, 6);
-         return '(' . $areaCode . ') ' . $prefix . '-' . $lineNumber;
-     }
+        return '(' . $areaCode . ') ' . $prefix . '-' . $lineNumber;
+    }
 }

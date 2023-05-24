@@ -27,10 +27,9 @@ class CustomCrawlerController extends Controller {
         ->setCrawlObserver(new CustomCrawlerObserver())
         ->setCrawlProfile(new CrawlInternalUrls($request['url']))
         ->setMaximumResponseSize(1024 * 1024 * 2) // 2 MB maximum
-        ->setTotalCrawlLimit(100) // limit defines the maximal count of URLs to crawl
+        ->setTotalCrawlLimit(10) // limit defines the maximal count of URLs to crawl
         // ->setConcurrency(1) // all urls will be crawled one by one
         ->setDelayBetweenRequests(100)
         ->startCrawling($request['url']);
-        return true;
     }
 }
